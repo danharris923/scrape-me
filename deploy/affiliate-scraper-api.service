@@ -1,0 +1,15 @@
+[Unit]
+Description=Affiliate Scraper API Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/scrape-me
+Environment="PATH=/home/ubuntu/scrape-me/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/ubuntu/scrape-me/venv/bin/python api_server.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

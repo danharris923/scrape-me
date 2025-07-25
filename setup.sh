@@ -190,6 +190,26 @@ async def test():
 asyncio.run(test())
 "
 
+# Set up API server service
+echo "🌐 Setting up API server service..."
+sudo tee /etc/systemd/system/affiliate-scraper-api.service > /dev/null << 'EOF'
+[Unit]
+Description=Affiliate Scraper API Server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/scrape-me
+Environment="PATH=/home/ubuntu/scrape-me/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/home/ubuntu/scrape-me/venv/bin/python api_server.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 echo ""
 echo "🎉 Setup completed successfully!"
 echo ""
@@ -200,11 +220,19 @@ echo "3. Copy .env.example to .env and configure your API keys"
 echo "4. Add your site configurations to /home/ubuntu/scraper/config/sites/"
 echo "5. Test the scraper: python main.py --status"
 echo "6. Start the daily timer: sudo systemctl start affiliate-scraper.timer"
+echo "7. Start API server: sudo systemctl enable affiliate-scraper-api && sudo systemctl start affiliate-scraper-api"
 echo ""
 echo "🔧 Configuration files:"
 echo "  - Environment: /home/ubuntu/scraper/.env"
 echo "  - Site configs: /home/ubuntu/scraper/config/sites/"
 echo "  - Credentials: /home/ubuntu/scraper/credentials/"
 echo ""
-echo "🔍 Monitor logs with: journalctl -u affiliate-scraper.service -f"
+echo "🌐 API Server endpoints:"
+echo "  - http://YOUR_VM_IP:8000/products - Get all products"
+echo "  - http://YOUR_VM_IP:8000/products/outdoor-gear-site - Get specific site"
+echo "  - http://YOUR_VM_IP:8000/sites - List all sites"
+echo ""
+echo "🔍 Monitor logs:"
+echo "  - Scraper: journalctl -u affiliate-scraper.service -f"
+echo "  - API: journalctl -u affiliate-scraper-api.service -f"
 echo "📊 Check timer status: systemctl status affiliate-scraper.timer"

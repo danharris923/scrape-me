@@ -28,3 +28,7 @@ loguru==0.7.2   # Enhanced logging
 
 # Type stubs for better type checking
 types-requests==2.32.0.20241016
+
+# API Server
+fastapi==0.104.0
+uvicorn==0.24.0
