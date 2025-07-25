@@ -1,0 +1,30 @@
+{
+  "site": "sample",
+  "timestamp": "2025-07-25T10:00:00Z",
+  "products": [
+    {
+      "title": "Camping Tent - 4 Person",
+      "price": "$149.99",
+      "affiliate_url": "https://example.com/tent?ref=affiliate123",
+      "image_url": "https://via.placeholder.com/300x200?text=Camping+Tent",
+      "slug": "camping-tent-4-person",
+      "description": "Waterproof 4-person camping tent with easy setup"
+    },
+    {
+      "title": "Portable Solar Charger",
+      "price": "$79.99",
+      "affiliate_url": "https://example.com/solar?ref=affiliate123",
+      "image_url": "https://via.placeholder.com/300x200?text=Solar+Charger",
+      "slug": "portable-solar-charger",
+      "description": "20W solar panel charger for outdoor adventures"
+    },
+    {
+      "title": "Hiking Backpack 65L",
+      "price": "$199.99",
+      "affiliate_url": "https://example.com/backpack?ref=affiliate123",
+      "image_url": "https://via.placeholder.com/300x200?text=Hiking+Backpack",
+      "slug": "hiking-backpack-65l",
+      "description": "Professional hiking backpack with rain cover"
+    }
+  ]
+}
