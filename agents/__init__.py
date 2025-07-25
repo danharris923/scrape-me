@@ -1,0 +1,1 @@
+"""Pydantic AI agents for the affiliate scraper."""

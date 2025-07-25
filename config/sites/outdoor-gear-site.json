@@ -1,0 +1,48 @@
+{
+  "site_name": "outdoor-gear-site",
+  "output_path": "./output/outdoor-gear-site-products.json",
+  "gcs_bucket": "outdoor-gear-images",
+  "image_folder": "products",
+  "refresh_interval_hours": 24,
+  "urls_to_scrape": [
+    {
+      "url": "https://www.amazon.com/s?k=camping+tents&ref=nb_sb_noss",
+      "platform": "amazon",
+      "category": "camping-tents",
+      "expected_count": 15,
+      "custom_selectors": {
+        "product_container": "[data-component-type='s-search-result']",
+        "title": "h2 a span",
+        "price": ".a-price-whole",
+        "image": ".s-image",
+        "link": "h2 a"
+      }
+    },
+    {
+      "url": "https://www.amazon.com/s?k=hiking+backpack&ref=nb_sb_noss",
+      "platform": "amazon", 
+      "category": "hiking-backpacks",
+      "expected_count": 12,
+      "custom_selectors": {
+        "product_container": "[data-component-type='s-search-result']",
+        "title": "h2 a span",
+        "price": ".a-price-whole",
+        "image": ".s-image",
+        "link": "h2 a"
+      }
+    },
+    {
+      "url": "https://www.rakuten.com/shop/camping-gear/",
+      "platform": "rakuten",
+      "category": "outdoor-gear",
+      "expected_count": 10,
+      "custom_selectors": {
+        "product_container": ".product-item",
+        "title": ".product-title",
+        "price": ".price",
+        "image": ".product-image img",
+        "link": ".product-link"
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "site_name": "tech-deals-site",
+  "output_path": "./output/tech-deals-site-products.json", 
+  "gcs_bucket": "tech-deals-images",
+  "image_folder": "products",
+  "refresh_interval_hours": 12,
+  "urls_to_scrape": [
+    {
+      "url": "https://www.amazon.com/s?k=wireless+headphones&ref=nb_sb_noss",
+      "platform": "amazon",
+      "category": "wireless-headphones", 
+      "expected_count": 20,
+      "custom_selectors": {
+        "product_container": "[data-component-type='s-search-result']",
+        "title": "h2 a span",
+        "price": ".a-price-whole",
+        "image": ".s-image",
+        "link": "h2 a"
+      }
+    },
+    {
+      "url": "https://www.amazon.com/s?k=smartphone+accessories&ref=nb_sb_noss",
+      "platform": "amazon",
+      "category": "smartphone-accessories",
+      "expected_count": 15,
+      "custom_selectors": {
+        "product_container": "[data-component-type='s-search-result']", 
+        "title": "h2 a span",
+        "price": ".a-price-whole",
+        "image": ".s-image",
+        "link": "h2 a"
+      }
+    },
+    {
+      "url": "https://www.rakuten.com/shop/electronics/",
+      "platform": "rakuten",
+      "category": "electronics",
+      "expected_count": 18,
+      "custom_selectors": {
+        "product_container": ".product-item",
+        "title": ".product-title", 
+        "price": ".price",
+        "image": ".product-image img",
+        "link": ".product-link"
+      }
+    },
+    {
+      "url": "https://www.cj.com/advertiser/tech-deals",
+      "platform": "cj",
+      "category": "tech-deals",
+      "expected_count": 8,
+      "custom_selectors": {
+        "product_container": ".deal-item",
+        "title": ".deal-title",
+        "price": ".deal-price", 
+        "image": ".deal-image img",
+        "link": ".deal-link"
+      }
+    }
+  ]
+}
