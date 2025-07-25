@@ -16,7 +16,7 @@ class ScraperSettings(BaseSettings):
     """Main configuration class for the affiliate scraper system."""
     
     # LLM Configuration
-    llm_provider: str = Field(default="anthropic", description="LLM provider (anthropic, openai)")
+    llm_provider: str = Field(default="anthropic", description="LLM provider (anthropic, openai, openrouter)")
     llm_model: str = Field(default="claude-3-5-sonnet-latest", description="LLM model name")
     llm_api_key: str = Field(default="", description="API key for LLM provider")
     
@@ -59,7 +59,7 @@ class ScraperSettings(BaseSettings):
     @validator("llm_provider")
     def validate_llm_provider(cls, v):
         """Validate LLM provider is supported."""
-        supported_providers = ["anthropic", "openai", "google"]
+        supported_providers = ["anthropic", "openai", "google", "openrouter"]
         if v not in supported_providers:
             raise ValueError(f"LLM provider must be one of: {supported_providers}")
         return v
