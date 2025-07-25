@@ -1,0 +1,26 @@
+[Unit]
+Description=Affiliate Scraper API Server
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=danharris923
+Group=danharris923
+WorkingDirectory=/home/danharris923/scrape-me
+Environment="PATH=/usr/bin:/usr/local/bin"
+Environment="PYTHONPATH=/home/danharris923/scrape-me"
+ExecStart=/usr/bin/python3 /home/danharris923/scrape-me/api_server.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/danharris923/scrape-me/output
+
+[Install]
+WantedBy=multi-user.target
