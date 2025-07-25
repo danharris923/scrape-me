@@ -19,7 +19,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://scale-me-testsite.vercel.app",
+        "https://scale-me.vercel.app",
         "http://localhost:3000",
+        "http://localhost:3001",
         "*"  # Allow all origins in development
     ],
     allow_credentials=True,
